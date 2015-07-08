@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 /**
  * Red Black Tree Node 
- * @author Quiksilvr JThurst
+ * @author Quiksilvr JThurst3
  *
  */
 
