@@ -10,7 +10,6 @@ public class RBTNode {
 	RBTNode parent; 
 	RBTNode leftChild;
 	RBTNode rightChild; 
-	RBTNode sentinel; 
 	String color; 
 	
 	public RBTNode(){
@@ -49,10 +48,5 @@ public class RBTNode {
 	
 	public RBTNode getRightChild() {
 		return rightChild; 
-	}
-
-	public void setSentinel(){
-		sentinel = null; 
-	}
-		
+	}		
 }
