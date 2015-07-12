@@ -1,0 +1,41 @@
+<!-- Modified from github.com/jthurst3/hassler -->
+<project name="RBT" default="jar" basedir=".">
+    <!-- properties -->
+    <property name="builddir"      location="./bin" />
+    <property name="src" location="./src" />
+    <property name="jarfile" value="./RBT.jar" />
+
+    <path id="lib.path.ref">
+        <pathelement location="${builddir}" />
+    </path>
+
+    <target name="compile">
+        <mkdir dir="${builddir}"/>
+        <javac
+            target="1.8" 
+            srcdir="${src}" destdir="${builddir}"
+            includeAntRuntime="false"
+            classpathref="lib.path.ref" debug="true">
+            <include name="*.java" />
+        </javac>
+    </target>
+
+    <target name="jar" depends="compile">
+        <copy todir="${builddir}" preservelastmodified="true">
+            <fileset dir="${src}" includes="*.properties" />
+        </copy>
+        <jar destfile="${jarfile}">
+            <fileset dir="${builddir}" includes="**/*.class" />
+            <fileset dir="${builddir}" includes="**/*.properties" />
+            <manifest>
+                <attribute name="Main-Class" value="RBTTest"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="clean">
+        <delete dir="${builddir}" />
+        <delete file="${jarfile}" />
+    </target>
+
+</project>
