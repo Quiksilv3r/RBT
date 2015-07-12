@@ -7,11 +7,16 @@ public class RBT {
 		this.root = r;
 		this.sentinel = null;
 	}
+	
+	public RBT() {
+        this(null);
+    }
 
-	public RBT RBTInsert(RBT t, RBTNode z) {
-
+	
+	public boolean insert(int d) {
+		RBTNode z = new RBTNode(d); 
 		RBTNode y = sentinel;
-		RBTNode x = t.root;
+		RBTNode x = this.root;
 
 		while (x != sentinel) {
 			y = x;
@@ -24,7 +29,7 @@ public class RBT {
 
 		z.setParent(y);
 		if (y == sentinel) {
-			t.root = z;
+			this.root = z;
 		} else if (z.getData() < y.getData()) {
 			y.setLeftChild(z);
 		} else {
@@ -54,7 +59,7 @@ public class RBT {
 					}
 					y.parent = x.parent;
 					if (x.parent == sentinel) {
-						t.root = y;
+						this.root = y;
 					} else if (x == x.parent.leftChild) {
 						x.parent.leftChild = y;
 					} else {
@@ -67,7 +72,11 @@ public class RBT {
 
 			}
 		}
-		return t;
+		return true;
 	}
+
+    public void printTree() {
+
+    }	
 
 }
