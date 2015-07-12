@@ -1,16 +1,15 @@
 public class RBT {
 
-	private RBTNode root;
-	private RBTNode sentinel;
-
-	public RBT(RBTNode r) {
-		this.root = r;
-		this.sentinel = new RBTNode();
-		this.sentinel.color = "BLACK"; 
-	}
+	public RBTNode root;
+	public RBTNode sentinel;
 
 	public RBT() {
-		this(new RBTNode());
+		this.sentinel = new RBTNode();
+		this.sentinel.color = "BLACK"; 
+        this.sentinel.leftChild = sentinel;
+        this.sentinel.rightChild = sentinel;
+        this.sentinel.parent = sentinel;
+		this.root = sentinel;
 	}
 
 	public void RBTRightRotate(RBTNode x){
@@ -50,6 +49,7 @@ public class RBT {
 	} 
 
 	public boolean insert(int d) {
+        System.out.println("inserting element " + d + " into tree...");
 		RBTNode z = new RBTNode(d);
         z.setLeftChild(sentinel);
         z.setRightChild(sentinel);
@@ -57,17 +57,21 @@ public class RBT {
         z.setColor("BLACK");
         if(this.root == sentinel) {
             this.root = z;
+            System.out.println("successfully inserted element into tree...");
             return true;
         }
 		RBTNode y = sentinel;
 		RBTNode x = this.root;
 		while (x != sentinel) {
 			y = x;
+            System.out.println(z);
+            System.out.println(x);
 			if (z.getData() < x.getData()) {
 				x = x.getLeftChild();
 			} else {
 				x = x.getRightChild();
 			}
+            System.out.println(x + " and " + sentinel + " and " + (x == sentinel));
 		}
 
 		z.setParent(y);
@@ -123,16 +127,18 @@ public class RBT {
 			}
 		}
         this.root.color = "BLACK";
+        System.out.println("successfully inserted element into tree...");
 		return true;
 	}
 
 	public void printTree() {
+        System.out.println("Printing tree...");
 		printTree(root);
 	}
 	
 	public void printTree(RBTNode r) {
-		System.out.println("Node Color "+ r.getColor());
-		System.out.println("Node Data "+  r.getData());
+        if(r == sentinel) return;
+        System.out.println(r);
 		printTree(r.getLeftChild());
 		printTree(r.getRightChild());
 	}

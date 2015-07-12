@@ -18,12 +18,14 @@ public class RBTNode {
 		this.leftChild = null; 
 		this.rightChild = null;
 		this.data = d; 
+        this.color = "BLACK";
 	} 
 
     public RBTNode() {
         this.parent = null;
         this.leftChild = null;
         this.rightChild = null;
+        this.color = "BLACK";
     }
 	
 	public void setColor(String c){
@@ -66,4 +68,7 @@ public class RBTNode {
 		return data; 
 	}
 	
+    public String toString() {
+        return "Node with data " + this.data + " and color " + this.color;
+    }
 }
