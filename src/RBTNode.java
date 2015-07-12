@@ -13,10 +13,11 @@ public class RBTNode {
 	int data; 
 	String color; 
 	
-	public RBTNode(){
+	public RBTNode(int d){
 		this.parent = null; 
 		this.leftChild = null; 
 		this.rightChild = null;
+		this.data = d; 
 	} 
 	
 	public void setColor(String c){
