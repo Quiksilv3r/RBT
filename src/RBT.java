@@ -57,23 +57,19 @@ public class RBT {
         z.setColor("BLACK");
         if(this.root == sentinel) {
             this.root = z;
-            System.out.println("successfully inserted element into tree...");
+            System.out.println("222successfully inserted element into tree...");
             return true;
         }
 		RBTNode y = sentinel;
 		RBTNode x = this.root;
 		while (x != sentinel) {
 			y = x;
-            System.out.println(z);
-            System.out.println(x);
 			if (z.getData() < x.getData()) {
 				x = x.getLeftChild();
 			} else {
 				x = x.getRightChild();
 			}
-            System.out.println(x + " and " + sentinel + " and " + (x == sentinel));
 		}
-
 		z.setParent(y);
 		if (y == sentinel) {
 			this.root = z;
@@ -85,12 +81,10 @@ public class RBT {
 		z.setLeftChild(sentinel);
 		z.setRightChild(sentinel);
 		z.setColor("RED");
-
 		// RB-Insert-FIXUP
 		while (z.getParent().color == "RED") {
 			if (z.parent == z.parent.parent.getLeftChild()) {
 				y = z.parent.parent.getRightChild();
-				
 				if (y.color == "RED") {
 					z.parent.color = "BLACK";
 					y.color = "BLACK";
@@ -98,7 +92,6 @@ public class RBT {
 					z = z.parent.parent;
 				} else if (z == z.parent.rightChild) {
 					z = z.parent;
-
 					// Left Rotate
 					RBTLeftRotate(x); 
 				}
@@ -108,7 +101,6 @@ public class RBT {
                 RBTRightRotate(x);
 			} else {
 				y = z.parent.parent.getLeftChild();
-				
 				if (y.color == "RED") {
 					z.parent.color = "BLACK";
 					y.color = "BLACK";
@@ -116,7 +108,6 @@ public class RBT {
 					z = z.parent.parent;
 				} else if (z == z.parent.leftChild) {
 					z = z.parent;
-
 					// Right Rotate
 					RBTRightRotate(x); 
 				}

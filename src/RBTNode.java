@@ -12,6 +12,7 @@ public class RBTNode {
 	RBTNode rightChild; 
 	int data; 
 	String color; 
+    static RBTNode sentinel;
 	
 	public RBTNode(int d){
 		this.parent = null; 
@@ -45,7 +46,7 @@ public class RBTNode {
 	} 
 	
 	public void setRightChild(RBTNode node){
-		leftChild = node; 
+		rightChild = node; 
 	}
 	
 	public RBTNode getParent(){

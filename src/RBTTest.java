@@ -28,9 +28,7 @@ public class RBTTest {
     // inserts a random element from 0 to 100 (exclusive) into the tree
     public static void insertRandomElementIntoTree(RBT tree) {
         int elem = rand.nextInt(100);
-        tree.printTree();
         tree.insert(elem);
-        System.out.println(tree.root.getLeftChild());
         tree.printTree();
     }
 
