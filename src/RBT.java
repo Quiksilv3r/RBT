@@ -9,8 +9,12 @@ public class RBT {
 		this.sentinel = null; 
 	}
 	
-	public RBT RBInsert(RBT t, RBTNode z) {
-		RBTNode y = sentinel; 
+    public RBT() {
+        this(new RBTNode());
+    }
+
+	public boolean insert(int elem) {
+		/*RBTNode y = sentinel; 
 		RBTNode x = t.root;
 		
 		while (x != sentinel) {
@@ -19,8 +23,12 @@ public class RBT {
 				
 			}
 		}
-		
-		return t;
+		*/
+		return true;
 	}
+
+    public void printTree() {
+
+    }
 	
 }
