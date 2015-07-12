@@ -29,6 +29,7 @@ public class RBTTest {
     public static void insertRandomElementIntoTree(RBT tree) {
         int elem = rand.nextInt(100);
         System.out.println("inserting element " + elem + " into tree...");
+        tree.printTree();
         tree.insert(elem);
         tree.printTree();
     }
