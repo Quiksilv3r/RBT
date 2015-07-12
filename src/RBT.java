@@ -82,10 +82,10 @@ public class RBT {
 		z.setRightChild(sentinel);
 		z.setColor("RED");
 		// RB-Insert-FIXUP
-		while (z.getParent().color == "RED") {
+		while (z.getParent().color.equals("RED")) {
 			if (z.parent == z.parent.parent.getLeftChild()) {
 				y = z.parent.parent.getRightChild();
-				if (y.color == "RED") {
+				if (y.color.equals("RED")) {
 					z.parent.color = "BLACK";
 					y.color = "BLACK";
 					z.parent.parent.color = "RED";
@@ -101,7 +101,7 @@ public class RBT {
                 RBTRightRotate(x);
 			} else {
 				y = z.parent.parent.getLeftChild();
-				if (y.color == "RED") {
+				if (y.color.equals("RED")) {
 					z.parent.color = "BLACK";
 					y.color = "BLACK";
 					z.parent.parent.color = "RED";
@@ -109,12 +109,12 @@ public class RBT {
 				} else if (z == z.parent.leftChild) {
 					z = z.parent;
 					// Right Rotate
-					RBTRightRotate(x); 
+					RBTRightRotate(y); 
 				}
 				z.parent.color = "BLACK";
 				z.parent.parent.color = "RED";
 				//RIGHT ROTATE
-                RBTLeftRotate(x);
+                RBTLeftRotate(y);
 			}
 		}
         this.root.color = "BLACK";
