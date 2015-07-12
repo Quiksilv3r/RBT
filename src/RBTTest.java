@@ -10,7 +10,7 @@ import java.util.Random;
 public class RBTTest {
 
     // Random number generator
-    Random rand;
+    static Random rand;
 
     public static void main(String[] args) {
         // create the random number generator
@@ -26,7 +26,7 @@ public class RBTTest {
     }
 
     // inserts a random element from 0 to 100 (exclusive) into the tree
-    public void insertRandomElementIntoTree(RBT tree) {
+    public static void insertRandomElementIntoTree(RBT tree) {
         int elem = rand.nextInt(100);
         System.out.println("inserting element " + elem + " into tree...");
         tree.insert(elem);
