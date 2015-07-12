@@ -127,7 +127,14 @@ public class RBT {
 	}
 
 	public void printTree() {
-
+		printTree(root);
 	}
-
+	
+	public void printTree(RBTNode r) {
+		System.out.println("Node Color "+ r.getColor());
+		System.out.println("Node Data "+  r.getData());
+		printTree(r.getLeftChild());
+		printTree(r.getRightChild());
+	}
+	
 }
